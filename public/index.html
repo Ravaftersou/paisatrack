@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track income, expenses, categories and personal finance reports.">
+    <title>PaisaTrack | Personal Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <section id="login-screen" class="login-screen">
+        <div class="login-intro">
+            <div class="brand brand-light"><span class="brand-symbol">₹</span><span>PaisaTrack</span></div>
+            <p class="eyebrow">PERSONAL FINANCE, MADE CLEAR</p>
+            <h1>Make every rupee count.</h1>
+            <p class="intro-text">A simple place to understand your income, manage expenses and see your financial picture clearly.</p>
+            <ul class="intro-points">
+                <li>Track income and daily expenses</li>
+                <li>Organise spending with categories</li>
+                <li>Review reports and trends</li>
+            </ul>
+        </div>
+
+        <div class="login-card">
+            <p class="eyebrow">WELCOME BACK</p>
+            <h2>Sign in to PaisaTrack</h2>
+            <p class="muted">Choose the account type assigned to you.</p>
+
+            <div class="role-tabs" aria-label="Account type">
+                <button class="role-tab active" type="button" data-role="user">User</button>
+                <button class="role-tab" type="button" data-role="admin">Admin</button>
+            </div>
+
+            <form id="login-form">
+                <input type="hidden" id="login-role" value="user">
+
+                <label for="login-email">Email address</label>
+                <input id="login-email" type="email" placeholder="you@example.com" autocomplete="username" required>
+
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+
+                <label class="remember-row">
+                    <input id="remember-email" type="checkbox">
+                    <span>Remember email on this device</span>
+                </label>
+
+                <p id="login-error" class="form-error" aria-live="polite"></p>
+                <button id="login-submit" class="button primary-button full-button" type="submit">Sign in</button>
+            </form>
+
+            <div class="demo-box">
+                <p class="demo-heading">DEMO CREDENTIALS</p>
+                <p><strong>User</strong> <code>user@paisa.local</code> <code>User@123</code></p>
+                <p><strong>Admin</strong> <code>admin@paisa.local</code> <code>Admin@123</code></p>
+                <small>For local testing only. Change demo credentials before storing private information.</small>
+            </div>
+        </div>
+    </section>
+
+    <section id="application" class="application hidden">
+        <header class="topbar">
+            <div class="brand"><span class="brand-symbol">₹</span><span>PaisaTrack</span></div>
+            <div class="topbar-actions">
+                <div class="profile-chip">
+                    <span id="profile-initial" class="profile-initial">U</span>
+                    <span><strong id="profile-name">User</strong><small id="profile-role">User account</small></span>
+                </div>
+                <button id="logout-button" class="button quiet-button" type="button">Log out</button>
+            </div>
+        </header>
+
+        <div class="app-layout">
+            <aside class="sidebar">
+                <p class="sidebar-heading">WORKSPACE</p>
+                <nav id="navigation" class="navigation" aria-label="Main navigation"></nav>
+                <div class="sidebar-foot"><span class="online-dot"></span> Local finance workspace</div>
+            </aside>
+            <main id="main-content" class="main-content">
+                <div class="loading-box">Loading your workspace...</div>
+            </main>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
